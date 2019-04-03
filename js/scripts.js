@@ -17,17 +17,19 @@ $(document).ready(function() {
      word = word + "way";
   } else {
 
-  if (!isVowel(word.charAt(0)) && !isVowel(word.charAt(1)) && !isVowel(word.charAt(2))){
-    word=word.slice(3) + word.charAt(0) + word.charAt(1)+ word.charAt(2) + "ay";
-  }
 
 
-  if (!isVowel(word.charAt(0)) && !isVowel(word.charAt(1))){
-    word = word.slice(2) + word.charAt(0) + word.charAt(1) + "ay";
+var position;
+for (i=0; i < word.length; i++){
+  if (isVowel(word[i])){
+ position =i;
+    break;
   }
-   else if (!isVowel(word.charAt(0))) {
-    word = word.slice(1) + word.charAt(0) + "ay";
-  }
+}
+
+word = word.substring(position, word.length) + word.substring(0, position) + "ay";
+
+  
 }
 
 
