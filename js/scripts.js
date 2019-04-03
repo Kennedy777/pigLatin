@@ -3,6 +3,16 @@ $(document).ready(function() {
   $("form#formOne").submit(function(event) {
     event.preventDefault();
     var word  = $("input#pig_latin").val();
+    var wordBreak = word.split(" ");
+    var newArray =  [];
+
+
+// for(j=0; j< wordBreak.length, j++){
+//      var word1 = wordBreak(j);
+//      console.log(word1);
+
+
+wordBreak.forEach(function(word1){
 
 
 
@@ -13,57 +23,34 @@ $(document).ready(function() {
       return false;
     }
   }
-  if (isVowel(word.charAt(0))){
-     word = word + "way";
+  if (isVowel(word1.charAt(0))){
+     word1 = word1 + "way";
   }else{
 
 var position;
-for (i=0; i < word.length; i++){
-  if (word.charAt(i)=== "a" || word.charAt(i) === "e" || word.charAt(i) === "i" || word.charAt(i) === "o"){
+for (i=1; i < word1.length; i++){
+  if (word1.charAt(i)=== "a" || word1.charAt(i) === "e" || word1.charAt(i) === "i" || word1.charAt(i) === "o" || word1.charAt(i) === "y" || word1.charAt(i) === "u"){
  position =i;
     break;
 
-} else if (word.charAt(i)==="u" && word.charAt(i-1)!=="q"){
+} else if (word1.charAt(i)==="u" && word1.charAt(i-1)!=="q"){
   postion=i;
   break;
- }
 }
-
-  word = word.substring(position, word.length) + word.substring(0, position) + "ay";
-
-// if(word.charAt(i-1)==="q") {
-//   word = word.splice(2) + word.charAt(0) + word.charAt(1) + "ay";
+// else if (word.charAt(i)==="y" && i > 0){
+//   postion=i;
+//   break;
 // }
-//   }
-
-// && word.charAt(i-1)!== "q"){
- // position=i;
- // break;
-
-
-
-
-// var Qu;
-// if(word.charAt(0)==="q"){
-// word = word.splice(2) + word.charAt(0) + word.charAt(1) + "ay";
-// }
+}
+  word1 = word1.substring(position, word1.length) + word1.substring(0, position) + "ay";
+  newArray.push(word1);
+  console.log(newArray);
 }
 
 
-// function isQ (symbol){
-//   if (symbol==="q"){
-//   return true;
-// }else{
-//   return false;
-// }
-// }
-//
-// if (isQ(word.charAt(0))){
-//   word = word.splice(2) + word.charAt(0) + word.charAt(1) + "ay";
-// }
-
-    //
-    console.log(word);
+ // }
+// });
+});
 
   });
 });
