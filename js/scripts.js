@@ -5,6 +5,7 @@ $(document).ready(function() {
     var word  = $("input#pig_latin").val();
     var wordBreak = word.split(" ");
     var newArray =  [];
+    var newString=[];
 
 
 // for(j=0; j< wordBreak.length, j++){
@@ -43,10 +44,12 @@ for (i=1; i < word1.length; i++){
 // }
 }
   word1 = word1.substring(position, word1.length) + word1.substring(0, position) + "ay";
-  newArray.push(word1);
-  console.log(newArray);
-}
 
+
+}
+newArray.push(word1);
+ newString = newArray.join(" ");
+  console.log(newString);
 
  // }
 // });
